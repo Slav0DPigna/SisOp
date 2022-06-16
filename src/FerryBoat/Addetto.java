@@ -10,9 +10,9 @@ public class Addetto extends Thread{
 
     public void run(){
         try{
-            while (true){
+            for(int i=0;i<50;i++)
                 f.imbarca();
-                f.terminaTraghettata();}
+            f.terminaTraghettata();
         }catch (InterruptedException e){
             e.printStackTrace();
         }
