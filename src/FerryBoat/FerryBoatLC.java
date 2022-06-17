@@ -1,6 +1,5 @@
 package FerryBoat;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -54,10 +53,11 @@ public class FerryBoatLC extends FerryBoat {
             System.out.println("L'auto con id "+Thread.currentThread().getId()+" si è parcheggiata, numero auto a bordo: "+autoParcheggiate.size());
             while(!(possoScendere[Integer.parseInt(Thread.currentThread().getName())]))
                 scendere.await();
-            possoScendere[Integer.parseInt(Thread.currentThread().getName())-1]=true;
-            System.out.println(Thread.currentThread().getName());
+            TimeUnit.MILLISECONDS.sleep(200);
             System.out.println("L'auto con id "+autoParcheggiate.removeLast().getId()+" è scesa dal ferry boat");
-            Thread.currentThread().interrupt();
+            if(Integer.parseInt(Thread.currentThread().getName())!=0)
+                possoScendere[Integer.parseInt(Thread.currentThread().getName())-1]=true;
+            scendere.signalAll();
         }finally {
             l.unlock();
         }
@@ -82,7 +82,7 @@ public class FerryBoatLC extends FerryBoat {
             while (!possoPartire)
                 finire.await();
             System.out.println("Il viaggio è iniziato");
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(1);
             System.out.println("Il viaggio è giunto al termine le auto possono scendere");
             possoScendere[possoScendere.length-1]=true;
             scendere.signalAll();
