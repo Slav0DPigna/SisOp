@@ -43,7 +43,9 @@ public abstract class FerryBoat {
         a.setDaemon(true);
         a.start();
         for(int i=0;i<numeroAuto;i++){
-            new Auto(this).start();
+            Auto auto=new Auto(this);
+            auto.setName(String.valueOf(i%50));
+            auto.start();
         }
     }//test
 }//FerryBoat

@@ -13,10 +13,14 @@ public class FerryBoatLC extends FerryBoat {
     private Condition parcheggiare=l.newCondition();
     private Condition scendere=l.newCondition();
     private Condition finire=l.newCondition();
-    private boolean viaggioFinito=false;
+    private boolean [] possoScendere=new boolean[50];
     private boolean possoParcheggiare=true;
     private boolean possoPartire=false;
 
+    public FerryBoatLC(){
+        for(int i=0;i<50;i++)
+            possoScendere[i]=false;
+    }//costruttore
 
     @Override
     void sali() throws InterruptedException {
@@ -39,19 +43,21 @@ public class FerryBoatLC extends FerryBoat {
             while(!possoParcheggiare)
                 parcheggiare.await();
             possoParcheggiare=false;
-            autoParcheggiate.add(autoInCoda.removeFirst());
-            TimeUnit.SECONDS.sleep(2);
+            autoParcheggiate.addLast(autoInCoda.removeFirst());
+            TimeUnit.MILLISECONDS.sleep(100);
             possoParcheggiare=true;
             if(autoParcheggiate.size()==50) {
                 possoPartire = true;
                 finire.signal();
                 possoParcheggiare=false;
             }
-            System.out.println("L'auto con id "+Thread.currentThread().getId()+" si è parcheggiata");
-            while(!viaggioFinito && autoParcheggiate.indexOf(Thread.currentThread())!=(autoParcheggiate.size()-1))
+            System.out.println("L'auto con id "+Thread.currentThread().getId()+" si è parcheggiata, numero auto a bordo: "+autoParcheggiate.size());
+            while(!(possoScendere[Integer.parseInt(Thread.currentThread().getName())]))
                 scendere.await();
-            autoParcheggiate.removeFirst();
-            System.out.println("L'auto con id "+Thread.currentThread().getId()+" è sceda dal ferry boat");
+            possoScendere[Integer.parseInt(Thread.currentThread().getName())-1]=true;
+            System.out.println(Thread.currentThread().getName());
+            System.out.println("L'auto con id "+autoParcheggiate.removeLast().getId()+" è scesa dal ferry boat");
+            Thread.currentThread().interrupt();
         }finally {
             l.unlock();
         }
@@ -61,8 +67,7 @@ public class FerryBoatLC extends FerryBoat {
     void imbarca() throws InterruptedException {
         l.lock();
         try{
-            if(autoParcheggiate.size()<50)
-                salire.signal();
+            salire.signal();
             if(possoParcheggiare)
                 parcheggiare.signal();
         }finally {
@@ -76,9 +81,10 @@ public class FerryBoatLC extends FerryBoat {
         try{
             while (!possoPartire)
                 finire.await();
-            TimeUnit.SECONDS.sleep(10);
+            System.out.println("Il viaggio è iniziato");
+            TimeUnit.SECONDS.sleep(5);
             System.out.println("Il viaggio è giunto al termine le auto possono scendere");
-            viaggioFinito=true;
+            possoScendere[possoScendere.length-1]=true;
             scendere.signalAll();
         }finally {
             l.unlock();
@@ -86,6 +92,6 @@ public class FerryBoatLC extends FerryBoat {
     }//terminaTraghettata
 
     public static void main(String[] args){
-        new FerryBoatLC().test(55);
+        new FerryBoatLC().test(50);
     }//main
 }//FerryBoatLC
