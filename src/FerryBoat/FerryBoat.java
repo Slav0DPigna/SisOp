@@ -36,6 +36,11 @@ public abstract class FerryBoat {
     -Il traghetto puó partire solo dopo aver raggiunto una capacità di 50 auto.
     -Il tempo di parcheggio dell'auto varia tra 1 e 2 minuti.
     -Il tempo di viaggio del ferry boat é di 20 minuti.
+    Si consideri la seguente variante in cui il ferry-boat fornisce un servizio continuo
+    di traghetto. Quando termina il viaggio da Reggio a messina, l'addetto attende che tutte le auto
+    scendono dal ferry-boat prima di far salire le auto dall'altra sponda ed effettuare il viaggio di
+    ritorno da messina a Reggio.
+    FerryBoatSem sarebbe anche interessante da implementare
      */
 
     public void test(int numeroAuto){
