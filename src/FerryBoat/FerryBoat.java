@@ -1,7 +1,5 @@
 package FerryBoat;
 
-import Esercitazione8.Esercizio44;
-
 import java.util.LinkedList;
 
 public abstract class FerryBoat {
