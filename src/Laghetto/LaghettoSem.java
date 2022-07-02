@@ -54,15 +54,7 @@ public class LaghettoSem extends Laghetto{
     mutex.release();
     }//finisciRipopolamento
 
-    public static void test(int minPesci, int maxPesci,int numPesciIniziali,int numPescatori,int numAddetti){
-        LaghettoSem l=new LaghettoSem(minPesci,maxPesci,numPesciIniziali);
-        for(int i=0;i<numPescatori;i++)
-            new Pescatore(l).start();
-        for (int i=0;i<numAddetti;i++)
-            new Addetto(l).start();
-    }//test
-
     public static void main(String[] args){
-        LaghettoSem.test(50,200,100,40,5);
+        new LaghettoSem(50,200,100).test(40,5);
     }//main
 }//LaghettoSem

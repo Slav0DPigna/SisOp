@@ -10,6 +10,10 @@ public abstract class Laghetto {
         this.numPesciIniziali=numPesciIniziali;
     }//costruttore
 
+    public Laghetto() {
+
+    }
+
 
     abstract void iniziaPesca() throws InterruptedException;
     abstract void iniziaRipopolamento() throws InterruptedException;
@@ -29,4 +33,11 @@ public abstract class Laghetto {
         else
             finisciRipopolamento();
     }//finisci
+
+    public void test(int numPescatori,int numAddetti){
+        for(int i=0;i<numPescatori;i++)
+            new Pescatore(this).start();
+        for (int i=0;i<numAddetti;i++)
+            new Addetto(this).start();
+    }//test
 }//Laghetto
