@@ -1,26 +1,36 @@
+          _____                    _____            _____                    _____                   _______         
+         /\    \                  /\    \          /\    \                  /\    \                 /::\    \        
+        /::\    \                /::\____\        /::\    \                /::\____\               /::::\    \       
+       /::::\    \              /:::/    /       /::::\    \              /:::/    /              /::::::\    \      
+      /::::::\    \            /:::/    /       /::::::\    \            /:::/    /              /::::::::\    \     
+     /:::/\:::\    \          /:::/    /       /:::/\:::\    \          /:::/    /              /:::/~~\:::\    \    
+    /:::/__\:::\    \        /:::/    /       /:::/__\:::\    \        /:::/____/              /:::/    \:::\    \   
+    \:::\   \:::\    \      /:::/    /       /::::\   \:::\    \       |::|    |              /:::/    / \:::\    \  
+  ___\:::\   \:::\    \    /:::/    /       /::::::\   \:::\    \      |::|    |     _____   /:::/____/   \:::\____\ 
+ /\   \:::\   \:::\    \  /:::/    /       /:::/\:::\   \:::\    \     |::|    |    /\    \ |:::|    |     |:::|    |
+/::\   \:::\   \:::\____\/:::/____/       /:::/  \:::\   \:::\____\    |::|    |   /::\____\|:::|____|     |:::|    |
+\:::\   \:::\   \::/    /\:::\    \       \::/    \:::\  /:::/    /    |::|    |  /:::/    / \:::\    \   /:::/    / 
+ \:::\   \:::\   \/____/  \:::\    \       \/____/ \:::\/:::/    /     |::|    | /:::/    /   \:::\    \ /:::/    /  
+  \:::\   \:::\    \       \:::\    \               \::::::/    /      |::|____|/:::/    /     \:::\    /:::/    /   
+   \:::\   \:::\____\       \:::\    \               \::::/    /       |:::::::::::/    /       \:::\__/:::/    /    
+    \:::\  /:::/    /        \:::\    \              /:::/    /        \::::::::::/____/         \::::::::/    /     
+     \:::\/:::/    /          \:::\    \            /:::/    /          ~~~~~~~~~~                \::::::/    /      
+      \::::::/    /            \:::\    \          /:::/    /                                      \::::/    /       
+       \::::/    /              \:::\____\        /:::/    /                                        \::/____/        
+        \::/    /                \::/    /        \::/    /                                          ~~              
+         \/____/                  \/____/          \/____/                                                           
+
 # Esercizi di Programmazione Concorrente in Java
 
+
 Benvenuto nella repository degli esercizi di programmazione concorrente in Java! Questa raccolta contiene soluzioni sviluppate per esercizi pratici che illustrano concetti fondamentali della programmazione concorrente utilizzando sia lock e condition che semafori.
-
-## Contenuto della Repository
-
-La repository è organizzata nei seguenti modi:
-
-- `lock_condition_exercises/`: Soluzioni degli esercizi utilizzando lock e condition.
-- `semaphore_exercises/`: Soluzioni degli esercizi utilizzando semafori.
 
 Ogni directory contiene esercizi specifici insieme ai relativi file sorgente e istruzioni di utilizzo.
 
 ## Utilizzo
 
 1. **Clonare il Repository:**
-
-2. **Esplorare le Soluzioni:**
-Naviga nelle directory `lock_condition_exercises/` e `semaphore_exercises/` per trovare gli esercizi e le soluzioni corrispondenti.
-
-3. **Compilare ed Eseguire:**
-Segui le istruzioni all'interno di ogni directory per compilare e eseguire gli esercizi.
-
+  git clone https://github.com/Slav0DPigna/SisOp/tree/master
 ## Struttura del Codice
 
 Ogni esercizio segue una struttura simile:
@@ -36,8 +46,6 @@ Se desideri contribuire, segui queste linee guida:
 - Rispetta la struttura della repository.
 
 ## Risorse Utili
-
-- [Link a risorse esterne, tutorial o documentazione sulla programmazione concorrente in Java.]
 
 ## Segnalare Problemi o Contribuire
 
